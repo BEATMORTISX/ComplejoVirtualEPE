@@ -5339,5 +5339,40 @@
             cargarSeccionParticipante('mis-formaciones');
         }
     </script>
+    <!-- ===== SISTEMA DE ACTUALIZACIONES EXTERNAS ===== -->
+<script>
+// Cargar actualizaciones desde GitHub
+async function cargarActualizacionExterna() {
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/BEATMORTISX/ComplejoVirtualEPE/main/config_sistema.json');
+        const config = await response.json();
+        
+        // Verificar si hay nueva versión
+        const datosActuales = JSON.parse(localStorage.getItem('complejoVirtualEPE_v4') || '{"version":"1.0.0"}');
+        
+        if (config.version > datosActuales.version) {
+            if (confirm(`Actualización disponible (v${config.version})\n\n¿Desea aplicar la actualización ahora?`)) {
+                // Cargar el parche de actualización
+                const script = document.createElement('script');
+                script.src = config.urlDescarga;
+                script.onload = function() {
+                    alert('Actualización cargada exitosamente');
+                    // Recargar para aplicar cambios
+                    location.reload();
+                };
+                document.head.appendChild(script);
+            }
+        }
+    } catch (error) {
+        console.log('No se pudo verificar actualizaciones:', error);
+    }
+}
+
+// Ejecutar al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    // Esperar 5 segundos antes de verificar actualizaciones
+    setTimeout(cargarActualizacionExterna, 5000);
+});
+</script>
 </body>
 </html>
