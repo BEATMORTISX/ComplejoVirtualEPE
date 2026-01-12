@@ -1,0 +1,19 @@
+{
+  "version": "3.2.0",
+  "nombre": "Complejo Virtual EPE - CRM Educativo",
+  "descripcion": "Sistema CRM educativo con sincronización y persistencia",
+  "cambios": [
+    "Sistema de persistencia mejorado",
+    "Sincronización automática entre interfaces",
+    "Gestión inteligente de botones de navegación",
+    "Carga de actualizaciones desde GitHub",
+    "Backup automático de datos"
+  ],
+  "urlDescarga": "https://raw.githubusercontent.com/BEATMORTISX/ComplejoVirtualEPE/main/actualizacion_sistema.html",
+  "fechaLanzamiento": "2024-01-15",
+  "requerimientos": {
+    "versionMinima": "3.0.0",
+    "navegadores": ["Chrome 80+", "Firefox 75+", "Safari 13+", "Edge 80+"]
+  },
+  "instrucciones": "Cargar esta página para aplicar la actualización automáticamente"
+}
